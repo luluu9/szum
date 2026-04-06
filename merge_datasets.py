@@ -1,5 +1,7 @@
 import shutil
 from pathlib import Path
+import wave
+import contextlib
 
 BASE_DIR = Path("d:/STUDIA/MGR3/SZUM")
 DATASETS_DIR = BASE_DIR / "datasets"
@@ -37,10 +39,51 @@ def process_gtzan():
                 dst_path = target_dir / dst_name
                 shutil.copy2(wav_file, dst_path)
 
+def get_wav_duration(file_path):
+    try:
+        with contextlib.closing(wave.open(str(file_path), 'r')) as f:
+            frames = f.getnframes()
+            rate = f.getframerate()
+            return frames / float(rate)
+    except Exception:
+        return 0.0
+
 def process_musan():
-    pass
+    musan_dir = DATASETS_DIR / "musan"
+    noise_dir = musan_dir / "noise"
+    target_other = MERGED_DIR / "Other"
+    
+    bg_noises = set()
+    fs_annotations = noise_dir / "free-sound" / "ANNOTATIONS"
+    if fs_annotations.exists():
+        with open(fs_annotations, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("noise-free-sound"):
+                    bg_noises.add(line)
+                    
+    musan_noise_sec = 0.0
+    for source in ["free-sound", "sound-bible"]:
+        src_dir = noise_dir / source
+        if not src_dir.exists():
+            continue
+        for wav_file in src_dir.glob("*.wav"):
+            musan_noise_sec += get_wav_duration(wav_file)
+            base_name = wav_file.stem
+            if base_name in bg_noises:
+                dst_name = f"musan_bg_{base_name}.wav"
+            else:
+                dst_name = f"musan_{base_name}.wav"
+            shutil.copy2(wav_file, target_other / dst_name)
+            
+    total_other_sec = 0.0
+    for wav_file in target_other.glob("*.wav"):
+        total_other_sec += get_wav_duration(wav_file)
+        
+    print(f"Target duration (Other): {total_other_sec:.2f} seconds ({total_other_sec/3600:.2f} h)")
 
 if __name__ == "__main__":
     setup_merged_dir()
     process_demand()
     process_gtzan()
+    process_musan()
