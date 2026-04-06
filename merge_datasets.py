@@ -167,7 +167,8 @@ if __name__ == "__main__":
     target_sec = get_total_duration(MERGED_DIR / "Other")
     print(f"Target limit seconds: {target_sec:.2f}")
     
-    process_gtzan(target_sec)
+    # Dzielimy pulę czasu dla Music: 50% dla GTZAN, 50% dla MUSAN
+    process_gtzan(target_sec / 2.0)
     
     curr_speech_sec = get_total_duration(MERGED_DIR / "Speech")
     missing_speech = target_sec - curr_speech_sec
