@@ -45,16 +45,26 @@ def process_demand():
                 dst_path = target_dir / dst_name
                 shutil.copy2(ch_file, dst_path)
 
-def process_gtzan():
+def process_gtzan(target_sec):
     gtzan_dir = DATASETS_DIR / "gtzan"
     target_dir = MERGED_DIR / "Music"
     
-    for genre_dir in gtzan_dir.iterdir():
-        if genre_dir.is_dir():
-            for wav_file in genre_dir.glob("*.wav"):
-                dst_name = f"gtzan_{wav_file.name}"
-                dst_path = target_dir / dst_name
-                shutil.copy2(wav_file, dst_path)
+    genres = [d for d in gtzan_dir.iterdir() if d.is_dir()]
+    if not genres:
+        return
+        
+    budget_per_genre = target_sec / len(genres)
+    
+    for genre_dir in genres:
+        copied_sec_for_genre = 0.0
+        for wav_file in genre_dir.glob("*.wav"):
+            if copied_sec_for_genre >= budget_per_genre:
+                break
+                
+            dst_name = f"gtzan_{wav_file.name}"
+            dst_path = target_dir / dst_name
+            shutil.copy2(wav_file, dst_path)
+            copied_sec_for_genre += get_wav_duration(wav_file)
 
 def process_musan_noise():
     musan_dir = DATASETS_DIR / "musan"
@@ -96,26 +106,39 @@ def process_musan_speech(missing_sec):
                 if len(parts) >= 3 and "english" in parts:
                     english_librivox.add(parts[0])
                     
-    files_to_copy = []
+    us_gov_files = []
     src_us_gov = speech_dir / "us-gov"
     if src_us_gov.exists():
-        files_to_copy.extend(src_us_gov.glob("*.wav"))
+        us_gov_files.extend(list(src_us_gov.glob("*.wav")))
             
+    librivox_files = []
     src_librivox = speech_dir / "librivox"
     if src_librivox.exists():
         for wav_file in src_librivox.glob("*.wav"):
             if wav_file.stem in english_librivox:
-                files_to_copy.append(wav_file)
+                librivox_files.append(wav_file)
                 
-    copied_sec = 0.0
-    for wav_file in files_to_copy:
-        if copied_sec >= missing_sec:
+    budget_per_source = missing_sec / 2.0
+    
+    copied_us_gov = 0.0
+    for wav_file in us_gov_files:
+        if copied_us_gov >= budget_per_source:
             break
             
         dur = get_wav_duration(wav_file)
         dst_name = f"musan_{wav_file.name}"
         shutil.copy2(wav_file, target_speech / dst_name)
-        copied_sec += dur
+        copied_us_gov += dur
+        
+    copied_librivox = 0.0
+    for wav_file in librivox_files:
+        if copied_librivox >= budget_per_source:
+            break
+            
+        dur = get_wav_duration(wav_file)
+        dst_name = f"musan_{wav_file.name}"
+        shutil.copy2(wav_file, target_speech / dst_name)
+        copied_librivox += dur
 
 def process_musan_music(missing_sec):
     musan_dir = DATASETS_DIR / "musan"
@@ -123,7 +146,7 @@ def process_musan_music(missing_sec):
     target_music = MERGED_DIR / "Music"
     
     files_to_copy = []
-    for source in ["fma", "hd-classical", "incompetech", "jamendo", "gtzan"]:
+    for source in ["fma", "fma-western-art", "hd-classical", "jamendo", "rfm"]:
         src_dir = music_dir / source
         if src_dir.exists():
             files_to_copy.extend(src_dir.glob("*.wav"))
@@ -141,20 +164,18 @@ def process_musan_music(missing_sec):
 if __name__ == "__main__":
     setup_merged_dir()
     process_demand()
-    process_gtzan()
     process_musan_noise()
     
-    # Zliczamy sumaryczny zapotrzebowany budżet (na podstawie Other)
     target_sec = get_total_duration(MERGED_DIR / "Other")
     print(f"Target limit seconds: {target_sec:.2f}")
     
-    # Uzupełnij Speech
+    process_gtzan(target_sec)
+    
     curr_speech_sec = get_total_duration(MERGED_DIR / "Speech")
     missing_speech = target_sec - curr_speech_sec
     print(f"Need {missing_speech:.2f} more seconds for Speech")
     process_musan_speech(missing_speech)
     
-    # Uzupełnij Music
     curr_music_sec = get_total_duration(MERGED_DIR / "Music")
     missing_music = target_sec - curr_music_sec
     print(f"Need {missing_music:.2f} more seconds for Music")
