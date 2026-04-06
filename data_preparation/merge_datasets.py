@@ -3,7 +3,7 @@ import wave
 import contextlib
 from pathlib import Path
 
-BASE_DIR = Path("d:/STUDIA/MGR3/SZUM")
+BASE_DIR = Path(__file__).resolve().parent.parent
 DATASETS_DIR = BASE_DIR / "datasets"
 MERGED_DIR = DATASETS_DIR / "MERGED"
 
