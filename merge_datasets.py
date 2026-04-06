@@ -1,13 +1,30 @@
+import os
 import shutil
-from pathlib import Path
 import wave
 import contextlib
+from pathlib import Path
 
 BASE_DIR = Path("d:/STUDIA/MGR3/SZUM")
 DATASETS_DIR = BASE_DIR / "datasets"
 MERGED_DIR = DATASETS_DIR / "MERGED"
 
 CLASSES = ["Music", "Speech", "Other"]
+
+def get_wav_duration(file_path):
+    try:
+        with contextlib.closing(wave.open(str(file_path), 'r')) as f:
+            frames = f.getnframes()
+            rate = f.getframerate()
+            return frames / float(rate)
+    except Exception:
+        return 0.0
+
+def get_total_duration(directory):
+    total_sec = 0.0
+    if directory.exists():
+        for wav_file in directory.glob("*.wav"):
+            total_sec += get_wav_duration(wav_file)
+    return total_sec
 
 def setup_merged_dir():
     if MERGED_DIR.exists():
@@ -39,16 +56,7 @@ def process_gtzan():
                 dst_path = target_dir / dst_name
                 shutil.copy2(wav_file, dst_path)
 
-def get_wav_duration(file_path):
-    try:
-        with contextlib.closing(wave.open(str(file_path), 'r')) as f:
-            frames = f.getnframes()
-            rate = f.getframerate()
-            return frames / float(rate)
-    except Exception:
-        return 0.0
-
-def process_musan():
+def process_musan_noise():
     musan_dir = DATASETS_DIR / "musan"
     noise_dir = musan_dir / "noise"
     target_other = MERGED_DIR / "Other"
@@ -62,28 +70,93 @@ def process_musan():
                 if line.startswith("noise-free-sound"):
                     bg_noises.add(line)
                     
-    musan_noise_sec = 0.0
     for source in ["free-sound", "sound-bible"]:
         src_dir = noise_dir / source
         if not src_dir.exists():
             continue
         for wav_file in src_dir.glob("*.wav"):
-            musan_noise_sec += get_wav_duration(wav_file)
             base_name = wav_file.stem
             if base_name in bg_noises:
                 dst_name = f"musan_bg_{base_name}.wav"
             else:
                 dst_name = f"musan_{base_name}.wav"
             shutil.copy2(wav_file, target_other / dst_name)
+
+def process_musan_speech(missing_sec):
+    musan_dir = DATASETS_DIR / "musan"
+    speech_dir = musan_dir / "speech"
+    target_speech = MERGED_DIR / "Speech"
+    
+    english_librivox = set()
+    lv_annotations = speech_dir / "librivox" / "ANNOTATIONS"
+    if lv_annotations.exists():
+        with open(lv_annotations, 'r') as f:
+            for line in f:
+                parts = line.strip().split()
+                if len(parts) >= 3 and "english" in parts:
+                    english_librivox.add(parts[0])
+                    
+    files_to_copy = []
+    src_us_gov = speech_dir / "us-gov"
+    if src_us_gov.exists():
+        files_to_copy.extend(src_us_gov.glob("*.wav"))
             
-    total_other_sec = 0.0
-    for wav_file in target_other.glob("*.wav"):
-        total_other_sec += get_wav_duration(wav_file)
-        
-    print(f"Target duration (Other): {total_other_sec:.2f} seconds ({total_other_sec/3600:.2f} h)")
+    src_librivox = speech_dir / "librivox"
+    if src_librivox.exists():
+        for wav_file in src_librivox.glob("*.wav"):
+            if wav_file.stem in english_librivox:
+                files_to_copy.append(wav_file)
+                
+    copied_sec = 0.0
+    for wav_file in files_to_copy:
+        if copied_sec >= missing_sec:
+            break
+            
+        dur = get_wav_duration(wav_file)
+        dst_name = f"musan_{wav_file.name}"
+        shutil.copy2(wav_file, target_speech / dst_name)
+        copied_sec += dur
+
+def process_musan_music(missing_sec):
+    musan_dir = DATASETS_DIR / "musan"
+    music_dir = musan_dir / "music"
+    target_music = MERGED_DIR / "Music"
+    
+    files_to_copy = []
+    for source in ["fma", "hd-classical", "incompetech", "jamendo", "gtzan"]:
+        src_dir = music_dir / source
+        if src_dir.exists():
+            files_to_copy.extend(src_dir.glob("*.wav"))
+            
+    copied_sec = 0.0
+    for wav_file in files_to_copy:
+        if copied_sec >= missing_sec:
+            break
+            
+        dur = get_wav_duration(wav_file)
+        dst_name = f"musan_{wav_file.name}"
+        shutil.copy2(wav_file, target_music / dst_name)
+        copied_sec += dur
 
 if __name__ == "__main__":
     setup_merged_dir()
     process_demand()
     process_gtzan()
-    process_musan()
+    process_musan_noise()
+    
+    # Zliczamy sumaryczny zapotrzebowany budżet (na podstawie Other)
+    target_sec = get_total_duration(MERGED_DIR / "Other")
+    print(f"Target limit seconds: {target_sec:.2f}")
+    
+    # Uzupełnij Speech
+    curr_speech_sec = get_total_duration(MERGED_DIR / "Speech")
+    missing_speech = target_sec - curr_speech_sec
+    print(f"Need {missing_speech:.2f} more seconds for Speech")
+    process_musan_speech(missing_speech)
+    
+    # Uzupełnij Music
+    curr_music_sec = get_total_duration(MERGED_DIR / "Music")
+    missing_music = target_sec - curr_music_sec
+    print(f"Need {missing_music:.2f} more seconds for Music")
+    process_musan_music(missing_music)
+
