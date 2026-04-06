@@ -43,7 +43,7 @@ def process_demand():
             if ch_file.exists():
                 dst_name = f"demand_{env_dir.name}_ch01.wav"
                 dst_path = target_dir / dst_name
-                shutil.copy2(ch_file, dst_path)
+                shutil.copy(ch_file, dst_path)
 
 def process_gtzan(target_sec):
     gtzan_dir = DATASETS_DIR / "gtzan"
@@ -63,7 +63,7 @@ def process_gtzan(target_sec):
                 
             dst_name = f"gtzan_{wav_file.name}"
             dst_path = target_dir / dst_name
-            shutil.copy2(wav_file, dst_path)
+            shutil.copy(wav_file, dst_path)
             copied_sec_for_genre += get_wav_duration(wav_file)
 
 def process_musan_noise():
@@ -80,9 +80,8 @@ def process_musan_noise():
                 if line.startswith("noise-free-sound"):
                     bg_noises.add(line)
                     
-    for source in ["free-sound", "sound-bible"]:
-        src_dir = noise_dir / source
-        if not src_dir.exists():
+    for src_dir in noise_dir.iterdir():
+        if not src_dir.is_dir():
             continue
         for wav_file in src_dir.glob("*.wav"):
             base_name = wav_file.stem
@@ -90,7 +89,7 @@ def process_musan_noise():
                 dst_name = f"musan_bg_{base_name}.wav"
             else:
                 dst_name = f"musan_{base_name}.wav"
-            shutil.copy2(wav_file, target_other / dst_name)
+            shutil.copy(wav_file, target_other / dst_name)
 
 def process_musan_speech(missing_sec):
     musan_dir = DATASETS_DIR / "musan"
@@ -127,7 +126,7 @@ def process_musan_speech(missing_sec):
             
         dur = get_wav_duration(wav_file)
         dst_name = f"musan_{wav_file.name}"
-        shutil.copy2(wav_file, target_speech / dst_name)
+        shutil.copy(wav_file, target_speech / dst_name)
         copied_us_gov += dur
         
     copied_librivox = 0.0
@@ -137,7 +136,7 @@ def process_musan_speech(missing_sec):
             
         dur = get_wav_duration(wav_file)
         dst_name = f"musan_{wav_file.name}"
-        shutil.copy2(wav_file, target_speech / dst_name)
+        shutil.copy(wav_file, target_speech / dst_name)
         copied_librivox += dur
 
 def process_musan_music(missing_sec):
@@ -146,9 +145,8 @@ def process_musan_music(missing_sec):
     target_music = MERGED_DIR / "Music"
     
     files_to_copy = []
-    for source in ["fma", "fma-western-art", "hd-classical", "jamendo", "rfm"]:
-        src_dir = music_dir / source
-        if src_dir.exists():
+    for src_dir in music_dir.iterdir():
+        if src_dir.is_dir():
             files_to_copy.extend(src_dir.glob("*.wav"))
             
     copied_sec = 0.0
@@ -158,7 +156,7 @@ def process_musan_music(missing_sec):
             
         dur = get_wav_duration(wav_file)
         dst_name = f"musan_{wav_file.name}"
-        shutil.copy2(wav_file, target_music / dst_name)
+        shutil.copy(wav_file, target_music / dst_name)
         copied_sec += dur
 
 if __name__ == "__main__":
