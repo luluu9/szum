@@ -1,4 +1,3 @@
-import os
 import shutil
 import wave
 import contextlib
@@ -159,6 +158,53 @@ def process_musan_music(missing_sec):
         shutil.copy(wav_file, target_music / dst_name)
         copied_sec += dur
 
+def print_statistics_table():
+    print("\nDATASET MERGE")
+    
+    datasets_keys = ["DEMAND", "GTZAN", "MUSAN"]
+    stats = {cls: {ds: 0.0 for ds in datasets_keys} for cls in CLASSES}
+    dataset_totals = {ds: 0.0 for ds in datasets_keys}
+    class_totals = {cls: 0.0 for cls in CLASSES}
+    grand_total = 0.0
+    
+    for cls in CLASSES:
+        cls_dir = MERGED_DIR / cls
+        if not cls_dir.exists():
+            continue
+            
+        for wav_file in cls_dir.glob("*.wav"):
+            base = wav_file.name
+            if base.startswith("demand"):
+                ds_name = "DEMAND"
+            elif base.startswith("gtzan"):
+                ds_name = "GTZAN"
+            elif base.startswith("musan"):
+                ds_name = "MUSAN"
+            else:
+                continue
+                
+            dur = get_wav_duration(wav_file)
+            stats[cls][ds_name] += dur
+            dataset_totals[ds_name] += dur
+            class_totals[cls] += dur
+            grand_total += dur
+            
+    header = ["Class"] + datasets_keys + ["TOTAL"]
+    print("\t".join(header))
+    
+    for cls in CLASSES:
+        row = [cls]
+        for ds in datasets_keys:
+            row.append(f"{stats[cls][ds]:.2f}")
+        row.append(f"{class_totals[cls]:.2f}")
+        print("\t".join(row))
+        
+    total_row = ["TOTAL"]
+    for ds in datasets_keys:
+        total_row.append(f"{dataset_totals[ds]:.2f}")
+    total_row.append(f"{grand_total:.2f}")
+    print("\t".join(total_row))
+
 if __name__ == "__main__":
     setup_merged_dir()
     process_demand()
@@ -179,4 +225,5 @@ if __name__ == "__main__":
     missing_music = target_sec - curr_music_sec
     print(f"Need {missing_music:.2f} more seconds for Music")
     process_musan_music(missing_music)
-
+    
+    print_statistics_table()
