@@ -66,15 +66,19 @@ def process_split(split_name: str) -> None:
     input_split_dir = INPUT_DIR / split_name
     output_split_dir = OUTPUT_DIR / split_name
     output_split_dir.mkdir(parents=True, exist_ok=True)
-    files = collect_audio_files(input_split_dir)
-    total_segments = 0
-    for audio_file in files:
-        try:
-            count = split_and_save_file(audio_file, output_split_dir)
-            total_segments += count
-            print(f"[OK] {audio_file} -> {count} segmentów")
-        except Exception as e:
-            print(f"[ERROR] {audio_file}: {e}")
+
+    for class_dir in sorted(input_split_dir.iterdir()):
+        if not class_dir.is_dir():
+            continue
+        class_output_dir = output_split_dir / class_dir.name
+        class_output_dir.mkdir(parents=True, exist_ok=True)
+        files = collect_audio_files(class_dir)
+        for audio_file in files:
+            try:
+                count = split_and_save_file(audio_file, class_output_dir)
+                print(f"[OK] {audio_file} -> {count} segmentów")
+            except Exception as e:
+                print(f"[ERROR] {audio_file}: {e}")
 
 
 def main():
