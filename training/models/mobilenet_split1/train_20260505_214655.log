@@ -1,0 +1,114 @@
+21:46:55  INFO     Run 20260505_214655 | split=split1 | model=MODEL1 | epochs=80 | fraction=0.10 | dropout=0.00 | frozen=0
+21:46:55  INFO     Loading paths from data/split1
+21:46:55  INFO     [train]
+21:46:55  INFO         Music    4833 segments
+21:46:55  INFO         Speech   4929 segments
+21:46:55  INFO         Other    4640 segments
+21:46:55  INFO     [val]
+21:46:55  INFO         Music    1021 segments
+21:46:55  INFO         Speech   1105 segments
+21:46:55  INFO         Other    916 segments
+21:46:55  INFO     [test]
+21:46:55  INFO         Music    840 segments
+21:46:55  INFO         Speech   1104 segments
+21:46:55  INFO         Other    976 segments
+21:46:55  INFO     Subsampled train set to 1440 files (fraction=0.10)
+21:46:55  INFO     Class weights: {'Music': '1.03', 'Speech': '0.99', 'Other': '0.98'}
+21:46:55  INFO     Building tf.data pipelines (mel spectrograms computed on-the-fly + cached)...
+21:46:59  INFO     MobileNetV2: 154/154 layers trainable
+21:46:59  INFO     Training | train=1440  val=3042  epochs=80
+21:48:57  INFO     epoch   1 | loss 0.2810 | acc 0.9187 | val_loss 22.8802 | val_acc 0.3011 | 118.4s
+21:49:01  INFO     epoch   2 | loss 0.0664 | acc 0.9833 | val_loss 31.1340 | val_acc 0.3011 | 3.0s
+21:49:04  INFO     epoch   3 | loss 0.0394 | acc 0.9868 | val_loss 10.4471 | val_acc 0.4428 | 2.9s
+21:49:07  INFO     epoch   4 | loss 0.0434 | acc 0.9875 | val_loss 17.7277 | val_acc 0.4030 | 2.9s
+21:49:10  INFO     epoch   5 | loss 0.0506 | acc 0.9833 | val_loss 28.3720 | val_acc 0.3143 | 3.0s
+21:49:13  INFO     epoch   6 | loss 0.0491 | acc 0.9889 | val_loss 34.0683 | val_acc 0.3031 | 3.0s
+21:49:16  INFO     epoch   7 | loss 0.0599 | acc 0.9833 | val_loss 17.6034 | val_acc 0.4001 | 2.9s
+21:49:19  INFO     epoch   8 | loss 0.0285 | acc 0.9924 | val_loss 11.0480 | val_acc 0.6460 | 2.9s
+21:49:22  INFO     epoch   9 | loss 0.0148 | acc 0.9958 | val_loss 18.2214 | val_acc 0.5421 | 2.9s
+21:49:25  INFO     epoch  10 | loss 0.0229 | acc 0.9910 | val_loss 22.3583 | val_acc 0.4027 | 3.0s
+21:49:28  INFO     epoch  11 | loss 0.0215 | acc 0.9931 | val_loss 21.3890 | val_acc 0.4214 | 2.9s
+21:49:31  INFO     epoch  12 | loss 0.0196 | acc 0.9951 | val_loss 21.9470 | val_acc 0.3208 | 3.0s
+21:49:34  INFO     epoch  13 | loss 0.0063 | acc 0.9979 | val_loss 28.2631 | val_acc 0.3021 | 2.9s
+21:49:37  INFO     epoch  14 | loss 0.0035 | acc 0.9993 | val_loss 25.1601 | val_acc 0.3041 | 2.9s
+21:49:40  INFO     epoch  15 | loss 0.0007 | acc 1.0000 | val_loss 20.2975 | val_acc 0.3708 | 2.9s
+21:49:43  INFO     epoch  16 | loss 0.0001 | acc 1.0000 | val_loss 19.2300 | val_acc 0.3849 | 2.9s
+21:49:46  INFO     epoch  17 | loss 0.0000 | acc 1.0000 | val_loss 18.2259 | val_acc 0.4004 | 2.9s
+21:49:49  INFO     epoch  18 | loss 0.0000 | acc 1.0000 | val_loss 17.1599 | val_acc 0.4201 | 2.9s
+21:49:52  INFO     epoch  19 | loss 0.0000 | acc 1.0000 | val_loss 16.0954 | val_acc 0.4412 | 3.0s
+21:49:55  INFO     epoch  20 | loss 0.0000 | acc 1.0000 | val_loss 15.0571 | val_acc 0.4658 | 3.0s
+21:49:58  INFO     epoch  21 | loss 0.0000 | acc 1.0000 | val_loss 14.0564 | val_acc 0.4872 | 2.9s
+21:50:01  INFO     epoch  22 | loss 0.0000 | acc 1.0000 | val_loss 13.1105 | val_acc 0.5135 | 2.9s
+21:50:03  INFO     epoch  23 | loss 0.0000 | acc 1.0000 | val_loss 12.2167 | val_acc 0.5391 | 2.9s
+21:50:06  INFO     epoch  24 | loss 0.0000 | acc 1.0000 | val_loss 11.3737 | val_acc 0.5707 | 2.9s
+21:50:09  INFO     epoch  25 | loss 0.0000 | acc 1.0000 | val_loss 10.5922 | val_acc 0.6032 | 2.9s
+21:50:12  INFO     epoch  26 | loss 0.0000 | acc 1.0000 | val_loss 9.8636 | val_acc 0.6269 | 2.9s
+21:50:15  INFO     epoch  27 | loss 0.0000 | acc 1.0000 | val_loss 9.1812 | val_acc 0.6466 | 2.9s
+21:50:19  INFO     epoch  28 | loss 0.0000 | acc 1.0000 | val_loss 8.5418 | val_acc 0.6654 | 2.9s
+21:50:22  INFO     epoch  29 | loss 0.0000 | acc 1.0000 | val_loss 7.9453 | val_acc 0.6805 | 2.9s
+21:50:25  INFO     epoch  30 | loss 0.0000 | acc 1.0000 | val_loss 7.3848 | val_acc 0.6900 | 2.9s
+21:50:29  INFO     epoch  31 | loss 0.0000 | acc 1.0000 | val_loss 6.8608 | val_acc 0.6969 | 3.0s
+21:50:32  INFO     epoch  32 | loss 0.0000 | acc 1.0000 | val_loss 6.3743 | val_acc 0.7058 | 2.9s
+21:50:35  INFO     epoch  33 | loss 0.0000 | acc 1.0000 | val_loss 5.9271 | val_acc 0.7147 | 2.9s
+21:50:39  INFO     epoch  34 | loss 0.0000 | acc 1.0000 | val_loss 5.5203 | val_acc 0.7222 | 2.9s
+21:50:42  INFO     epoch  35 | loss 0.0000 | acc 1.0000 | val_loss 5.1479 | val_acc 0.7249 | 3.0s
+21:50:46  INFO     epoch  36 | loss 0.0000 | acc 1.0000 | val_loss 4.8083 | val_acc 0.7311 | 2.9s
+21:50:49  INFO     epoch  37 | loss 0.0000 | acc 1.0000 | val_loss 4.5005 | val_acc 0.7367 | 3.0s
+21:50:52  INFO     epoch  38 | loss 0.0000 | acc 1.0000 | val_loss 4.2210 | val_acc 0.7436 | 2.9s
+21:50:56  INFO     epoch  39 | loss 0.0000 | acc 1.0000 | val_loss 3.9654 | val_acc 0.7482 | 2.9s
+21:50:59  INFO     epoch  40 | loss 0.0000 | acc 1.0000 | val_loss 3.7317 | val_acc 0.7515 | 2.9s
+21:51:03  INFO     epoch  41 | loss 0.0000 | acc 1.0000 | val_loss 3.5149 | val_acc 0.7574 | 3.0s
+21:51:06  INFO     epoch  42 | loss 0.0000 | acc 1.0000 | val_loss 3.3138 | val_acc 0.7590 | 3.0s
+21:51:09  INFO     epoch  43 | loss 0.0000 | acc 1.0000 | val_loss 3.1280 | val_acc 0.7633 | 3.0s
+21:51:13  INFO     epoch  44 | loss 0.0000 | acc 1.0000 | val_loss 2.9565 | val_acc 0.7696 | 3.0s
+21:51:16  INFO     epoch  45 | loss 0.0000 | acc 1.0000 | val_loss 2.7994 | val_acc 0.7745 | 3.1s
+21:51:20  INFO     epoch  46 | loss 0.0000 | acc 1.0000 | val_loss 2.6556 | val_acc 0.7798 | 3.1s
+21:51:23  INFO     epoch  47 | loss 0.0000 | acc 1.0000 | val_loss 2.5245 | val_acc 0.7853 | 3.0s
+21:51:27  INFO     epoch  48 | loss 0.0000 | acc 1.0000 | val_loss 2.4053 | val_acc 0.7909 | 3.0s
+21:51:30  INFO     epoch  49 | loss 0.0000 | acc 1.0000 | val_loss 2.2969 | val_acc 0.7962 | 3.0s
+21:51:34  INFO     epoch  50 | loss 0.0000 | acc 1.0000 | val_loss 2.1986 | val_acc 0.8001 | 2.9s
+21:51:38  INFO     epoch  51 | loss 0.0000 | acc 1.0000 | val_loss 2.1092 | val_acc 0.8054 | 3.0s
+21:51:41  INFO     epoch  52 | loss 0.0000 | acc 1.0000 | val_loss 2.0287 | val_acc 0.8110 | 3.0s
+21:51:45  INFO     epoch  53 | loss 0.0000 | acc 1.0000 | val_loss 1.9565 | val_acc 0.8153 | 3.0s
+21:51:48  INFO     epoch  54 | loss 0.0000 | acc 1.0000 | val_loss 1.8907 | val_acc 0.8179 | 3.0s
+21:51:51  INFO     epoch  55 | loss 0.0000 | acc 1.0000 | val_loss 1.8303 | val_acc 0.8248 | 2.9s
+21:51:55  INFO     epoch  56 | loss 0.0000 | acc 1.0000 | val_loss 1.7748 | val_acc 0.8281 | 3.0s
+21:51:58  INFO     epoch  57 | loss 0.0000 | acc 1.0000 | val_loss 1.7235 | val_acc 0.8297 | 3.0s
+21:52:02  INFO     epoch  58 | loss 0.0000 | acc 1.0000 | val_loss 1.6760 | val_acc 0.8304 | 3.0s
+21:52:05  INFO     epoch  59 | loss 0.0000 | acc 1.0000 | val_loss 1.6319 | val_acc 0.8337 | 3.0s
+21:52:09  INFO     epoch  60 | loss 0.0000 | acc 1.0000 | val_loss 1.5912 | val_acc 0.8363 | 3.0s
+21:52:12  INFO     epoch  61 | loss 0.0000 | acc 1.0000 | val_loss 1.5524 | val_acc 0.8386 | 2.9s
+21:52:16  INFO     epoch  62 | loss 0.0000 | acc 1.0000 | val_loss 1.5157 | val_acc 0.8412 | 3.0s
+21:52:19  INFO     epoch  63 | loss 0.0000 | acc 1.0000 | val_loss 1.4807 | val_acc 0.8422 | 2.9s
+21:52:22  INFO     epoch  64 | loss 0.0000 | acc 1.0000 | val_loss 1.4474 | val_acc 0.8425 | 2.9s
+21:52:26  INFO     epoch  65 | loss 0.0000 | acc 1.0000 | val_loss 1.4154 | val_acc 0.8429 | 2.9s
+21:52:29  INFO     epoch  66 | loss 0.0000 | acc 1.0000 | val_loss 1.3846 | val_acc 0.8442 | 3.0s
+21:52:32  INFO     epoch  67 | loss 0.0000 | acc 1.0000 | val_loss 1.3547 | val_acc 0.8462 | 3.0s
+21:52:36  INFO     epoch  68 | loss 0.0000 | acc 1.0000 | val_loss 1.3256 | val_acc 0.8481 | 2.9s
+21:52:39  INFO     epoch  69 | loss 0.0000 | acc 1.0000 | val_loss 1.2973 | val_acc 0.8485 | 2.9s
+21:52:43  INFO     epoch  70 | loss 0.0000 | acc 1.0000 | val_loss 1.2696 | val_acc 0.8504 | 2.9s
+21:52:46  INFO     epoch  71 | loss 0.0000 | acc 1.0000 | val_loss 1.2426 | val_acc 0.8524 | 2.9s
+21:52:49  INFO     epoch  72 | loss 0.0000 | acc 1.0000 | val_loss 1.2160 | val_acc 0.8534 | 2.9s
+21:52:53  INFO     epoch  73 | loss 0.0000 | acc 1.0000 | val_loss 1.1899 | val_acc 0.8554 | 2.9s
+21:52:56  INFO     epoch  74 | loss 0.0000 | acc 1.0000 | val_loss 1.1641 | val_acc 0.8570 | 3.0s
+21:52:59  INFO     epoch  75 | loss 0.0000 | acc 1.0000 | val_loss 1.1387 | val_acc 0.8603 | 3.0s
+21:53:03  INFO     epoch  76 | loss 0.0000 | acc 1.0000 | val_loss 1.1134 | val_acc 0.8619 | 2.9s
+21:53:06  INFO     epoch  77 | loss 0.0000 | acc 1.0000 | val_loss 1.0884 | val_acc 0.8662 | 2.9s
+21:53:10  INFO     epoch  78 | loss 0.0000 | acc 1.0000 | val_loss 1.0637 | val_acc 0.8702 | 2.9s
+21:53:13  INFO     epoch  79 | loss 0.0000 | acc 1.0000 | val_loss 1.0393 | val_acc 0.8725 | 3.0s
+21:53:16  INFO     epoch  80 | loss 0.0000 | acc 1.0000 | val_loss 1.0149 | val_acc 0.8748 | 2.9s
+21:54:00  INFO     Test accuracy=0.8795
+              precision    recall  f1-score   support
+
+       Music       1.00      0.70      0.82       840
+      Speech       1.00      0.91      0.96      1104
+       Other       0.74      1.00      0.85       976
+
+    accuracy                           0.88      2920
+   macro avg       0.91      0.87      0.87      2920
+weighted avg       0.91      0.88      0.88      2920
+
+21:54:00  INFO     Best model saved as: models/MODEL1.keras
+21:54:00  INFO     Training curves saved: models/mobilenet_split1/training_history.png
+21:54:01  INFO     Confusion matrix saved: models/mobilenet_split1/confusion.png
+21:54:01  INFO     All outputs saved in: /home/kacper/szum/models/mobilenet_split1

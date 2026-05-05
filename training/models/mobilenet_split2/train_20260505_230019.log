@@ -1,0 +1,63 @@
+23:00:19  INFO     Run 20260505_230019 | split=split2 | model=MODEL2 | epochs=30 | fraction=1.00 | dropout=0.30 | frozen=100
+23:00:19  INFO     Loading paths from data/split2
+23:00:19  INFO     [train]
+23:00:19  INFO         Music    6000 segments
+23:00:19  INFO         Speech   4940 segments
+23:00:19  INFO         Other    4987 segments
+23:00:19  INFO     [val]
+23:00:19  INFO         Music    1021 segments
+23:00:19  INFO         Speech   1105 segments
+23:00:19  INFO         Other    916 segments
+23:00:19  INFO     [test]
+23:00:19  INFO         Music    840 segments
+23:00:19  INFO         Speech   1104 segments
+23:00:19  INFO         Other    976 segments
+23:00:19  INFO     Class weights: {'Music': '0.88', 'Speech': '1.07', 'Other': '1.06'}
+23:00:19  INFO     Building tf.data pipelines (mel spectrograms computed on-the-fly + cached)...
+23:00:23  INFO     MobileNetV2: 54/154 layers trainable
+23:00:23  INFO     Training | train=15927  val=3042  epochs=30
+23:04:45  INFO     epoch   1 | loss 0.1097 | acc 0.9705 | val_loss 0.6550 | val_acc 0.8981 | 262.1s
+23:04:56  INFO     epoch   2 | loss 0.1475 | acc 0.9671 | val_loss 1.8337 | val_acc 0.8090 | 10.8s
+23:05:07  INFO     epoch   3 | loss 0.1840 | acc 0.9495 | val_loss 3.6178 | val_acc 0.5943 | 10.6s
+23:05:18  INFO     epoch   4 | loss 0.1184 | acc 0.9707 | val_loss 4.8979 | val_acc 0.5858 | 10.9s
+23:05:29  INFO     epoch   5 | loss 0.1253 | acc 0.9724 | val_loss 0.4381 | val_acc 0.9306 | 11.0s
+23:05:40  INFO     epoch   6 | loss 0.0988 | acc 0.9716 | val_loss 0.9900 | val_acc 0.8508 | 10.6s
+23:05:51  INFO     epoch   7 | loss 0.0710 | acc 0.9814 | val_loss 0.4316 | val_acc 0.8343 | 10.8s
+23:06:02  INFO     epoch   8 | loss 0.0949 | acc 0.9786 | val_loss 0.4984 | val_acc 0.9001 | 11.1s
+23:06:13  INFO     epoch   9 | loss 0.0576 | acc 0.9841 | val_loss 0.4281 | val_acc 0.9369 | 11.0s
+23:06:24  INFO     epoch  10 | loss 0.0430 | acc 0.9891 | val_loss 0.1357 | val_acc 0.9760 | 10.7s
+23:06:35  INFO     epoch  11 | loss 0.0304 | acc 0.9900 | val_loss 0.2624 | val_acc 0.9385 | 10.6s
+23:06:46  INFO     epoch  12 | loss 0.0219 | acc 0.9929 | val_loss 0.2323 | val_acc 0.9352 | 10.7s
+23:06:56  INFO     epoch  13 | loss 0.0235 | acc 0.9935 | val_loss 0.3390 | val_acc 0.9267 | 10.7s
+23:07:07  INFO     epoch  14 | loss 0.0214 | acc 0.9931 | val_loss 1.0096 | val_acc 0.8416 | 11.1s
+23:07:18  INFO     epoch  15 | loss 0.0266 | acc 0.9928 | val_loss 0.6217 | val_acc 0.8961 | 10.9s
+23:07:29  INFO     epoch  16 | loss 0.0157 | acc 0.9954 | val_loss 0.4788 | val_acc 0.9237 | 10.7s
+23:07:40  INFO     epoch  17 | loss 0.0177 | acc 0.9955 | val_loss 0.1764 | val_acc 0.9783 | 10.7s
+23:07:51  INFO     epoch  18 | loss 0.0149 | acc 0.9954 | val_loss 0.2237 | val_acc 0.9727 | 10.8s
+23:08:02  INFO     epoch  19 | loss 0.0079 | acc 0.9973 | val_loss 0.2585 | val_acc 0.9678 | 10.7s
+23:08:12  INFO     epoch  20 | loss 0.0083 | acc 0.9980 | val_loss 0.3569 | val_acc 0.9329 | 10.7s
+23:08:23  INFO     epoch  21 | loss 0.0177 | acc 0.9960 | val_loss 0.3217 | val_acc 0.9458 | 11.0s
+23:08:35  INFO     epoch  22 | loss 0.0182 | acc 0.9943 | val_loss 0.2099 | val_acc 0.9790 | 11.5s
+23:08:47  INFO     epoch  23 | loss 0.0102 | acc 0.9969 | val_loss 0.6845 | val_acc 0.8922 | 11.4s
+23:08:58  INFO     epoch  24 | loss 0.0075 | acc 0.9981 | val_loss 0.4849 | val_acc 0.9218 | 11.3s
+23:09:09  INFO     epoch  25 | loss 0.0103 | acc 0.9974 | val_loss 0.3748 | val_acc 0.9418 | 11.2s
+23:09:20  INFO     epoch  26 | loss 0.0134 | acc 0.9964 | val_loss 0.5998 | val_acc 0.9218 | 11.0s
+23:09:31  INFO     epoch  27 | loss 0.0048 | acc 0.9987 | val_loss 0.2743 | val_acc 0.9569 | 10.7s
+23:09:42  INFO     epoch  28 | loss 0.0029 | acc 0.9990 | val_loss 0.5383 | val_acc 0.9172 | 10.8s
+23:09:52  INFO     epoch  29 | loss 0.0040 | acc 0.9987 | val_loss 0.3455 | val_acc 0.9540 | 10.7s
+23:10:03  INFO     epoch  30 | loss 0.0028 | acc 0.9990 | val_loss 0.1807 | val_acc 0.9793 | 10.6s
+23:10:47  INFO     Test accuracy=0.9849
+              precision    recall  f1-score   support
+
+       Music       0.99      0.97      0.98       840
+      Speech       1.00      1.00      1.00      1104
+       Other       0.97      0.99      0.98       976
+
+    accuracy                           0.98      2920
+   macro avg       0.98      0.98      0.98      2920
+weighted avg       0.99      0.98      0.98      2920
+
+23:10:48  INFO     Best model saved as: models/MODEL2.keras
+23:10:48  INFO     Training curves saved: models/mobilenet_split2/training_history.png
+23:10:48  INFO     Confusion matrix saved: models/mobilenet_split2/confusion.png
+23:10:48  INFO     All outputs saved in: /home/kacper/szum/models/mobilenet_split2

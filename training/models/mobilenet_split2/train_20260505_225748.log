@@ -1,0 +1,18 @@
+22:57:48  INFO     Run 20260505_225748 | split=split2 | model=MODEL2 | epochs=30 | fraction=1.00 | dropout=0.30 | frozen=100
+22:57:48  INFO     Loading paths from data/split2
+22:57:48  INFO     [train]
+22:57:48  INFO         Music    6000 segments
+22:57:48  INFO         Speech   4940 segments
+22:57:48  INFO         Other    4987 segments
+22:57:48  INFO     [val]
+22:57:48  INFO         Music    1021 segments
+22:57:48  INFO         Speech   1105 segments
+22:57:48  INFO         Other    916 segments
+22:57:48  INFO     [test]
+22:57:48  INFO         Music    840 segments
+22:57:48  INFO         Speech   1104 segments
+22:57:48  INFO         Other    976 segments
+22:57:48  INFO     Class weights: {'Music': '0.88', 'Speech': '1.07', 'Other': '1.06'}
+22:57:48  INFO     Building tf.data pipelines (mel spectrograms computed on-the-fly + cached)...
+22:57:52  INFO     MobileNetV2: 54/154 layers trainable
+22:57:52  INFO     Training | train=15927  val=3042  epochs=30

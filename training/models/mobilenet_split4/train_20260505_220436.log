@@ -1,0 +1,14 @@
+22:04:36  INFO     Run 20260505_220436 | split=split4 | model=MODEL4 | epochs=160 | fraction=0.10 | dropout=0.00 | frozen=0
+22:04:36  INFO     Loading paths from data/split4
+22:04:36  INFO     [train]
+22:04:36  WARNING  missing category dir: data/split4/train/Music
+22:04:36  WARNING  missing category dir: data/split4/train/Speech
+22:04:36  WARNING  missing category dir: data/split4/train/Other
+22:04:36  INFO     [val]
+22:04:36  WARNING  missing category dir: data/split4/val/Music
+22:04:36  WARNING  missing category dir: data/split4/val/Speech
+22:04:36  WARNING  missing category dir: data/split4/val/Other
+22:04:36  INFO     [test]
+22:04:36  WARNING  missing category dir: data/split4/test/Music
+22:04:36  WARNING  missing category dir: data/split4/test/Speech
+22:04:36  WARNING  missing category dir: data/split4/test/Other
