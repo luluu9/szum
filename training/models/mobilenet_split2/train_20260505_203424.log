@@ -1,0 +1,68 @@
+20:34:24  INFO     Run 20260505_203424 | split=split2 | model=MODEL2 | epochs=30 | fraction=1.00 | dropout=0.30 | frozen=100
+20:34:24  INFO     Loading paths from data/split2
+20:34:24  INFO     [train]
+20:34:25  INFO         Music    6000 segments
+20:34:25  INFO         Speech   4940 segments
+20:34:25  INFO         Other    4987 segments
+20:34:25  INFO     [val]
+20:34:25  INFO         Music    1021 segments
+20:34:25  INFO         Speech   1105 segments
+20:34:25  INFO         Other    916 segments
+20:34:25  INFO     [test]
+20:34:25  INFO         Music    840 segments
+20:34:25  INFO         Speech   1104 segments
+20:34:25  INFO         Other    976 segments
+20:34:25  INFO     Class weights: {'Music': '0.88', 'Speech': '1.07', 'Other': '1.06'}
+20:34:25  INFO     Building tf.data pipelines (mel spectrograms computed on-the-fly + cached)...
+20:34:29  INFO     MobileNetV2: 54/154 layers trainable
+20:34:29  INFO     Model: "mobilenetv2_head"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ input_layer_1 (InputLayer)           │ (None, 128, 128, 3)         │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ mobilenetv2_1.00_128 (Functional)    │ (None, 4, 4, 1280)          │       2,257,984 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ global_average_pooling2d             │ (None, 1280)                │               0 │
+│ (GlobalAveragePooling2D)             │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 1280)                │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense (Dense)                        │ (None, 3)                   │           3,843 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 2,261,827 (8.63 MB)
+ Trainable params: 1,865,283 (7.12 MB)
+ Non-trainable params: 396,544 (1.51 MB)
+
+20:34:29  INFO     Training | train=15927  val=3042  epochs=30
+20:38:46  INFO     epoch   1 | loss 0.1270 | acc 0.9690 | val_loss 20.9085 | val_acc 0.3632 | 257.5s
+20:38:59  INFO     epoch   2 | loss 0.1644 | acc 0.9625 | val_loss 1.3025 | val_acc 0.7597 | 11.3s
+20:39:11  INFO     epoch   3 | loss 0.1376 | acc 0.9701 | val_loss 0.7798 | val_acc 0.8810 | 11.3s
+20:39:22  INFO     epoch   4 | loss 0.1078 | acc 0.9726 | val_loss 4.2704 | val_acc 0.5865 | 11.3s
+20:39:33  INFO     epoch   5 | loss 0.1121 | acc 0.9741 | val_loss 2.4813 | val_acc 0.6631 | 11.2s
+20:39:45  INFO     epoch   6 | loss 0.0921 | acc 0.9763 | val_loss 28.8474 | val_acc 0.3389 | 11.4s
+20:39:56  INFO     epoch   7 | loss 0.0712 | acc 0.9844 | val_loss 1.3996 | val_acc 0.8110 | 11.3s
+20:40:07  INFO     epoch   8 | loss 0.0579 | acc 0.9851 | val_loss 1.2412 | val_acc 0.8787 | 11.3s
+20:40:19  INFO     epoch   9 | loss 0.0325 | acc 0.9903 | val_loss 0.1489 | val_acc 0.9704 | 11.3s
+20:40:30  INFO     epoch  10 | loss 0.0234 | acc 0.9933 | val_loss 0.2556 | val_acc 0.9477 | 11.2s
+20:40:42  INFO     epoch  11 | loss 0.0122 | acc 0.9966 | val_loss 0.2633 | val_acc 0.9435 | 11.3s
+20:40:53  INFO     epoch  12 | loss 0.0073 | acc 0.9976 | val_loss 0.5522 | val_acc 0.8902 | 11.3s
+20:41:04  INFO     epoch  13 | loss 0.0060 | acc 0.9984 | val_loss 0.2850 | val_acc 0.9389 | 10.8s
+20:41:15  INFO     epoch  14 | loss 0.0043 | acc 0.9986 | val_loss 0.5364 | val_acc 0.8905 | 11.4s
+20:41:27  INFO     epoch  15 | loss 0.0030 | acc 0.9992 | val_loss 0.2355 | val_acc 0.9507 | 11.3s
+20:41:38  INFO     epoch  16 | loss 0.0034 | acc 0.9991 | val_loss 0.1733 | val_acc 0.9629 | 11.3s
+20:42:22  INFO     Test accuracy=0.9812
+              precision    recall  f1-score   support
+
+       Music       1.00      0.96      0.98       840
+      Speech       1.00      0.99      0.99      1104
+       Other       0.95      0.99      0.97       976
+
+    accuracy                           0.98      2920
+   macro avg       0.98      0.98      0.98      2920
+weighted avg       0.98      0.98      0.98      2920
+
+20:42:23  INFO     Best model saved as: models/MODEL2.keras
+20:42:23  INFO     Training curves saved: models/mobilenet_split2/training_history.png
+20:42:23  INFO     Confusion matrix saved: models/mobilenet_split2/confusion.png
+20:42:23  INFO     All outputs saved in: /home/kacper/szum/models/mobilenet_split2

@@ -1,0 +1,83 @@
+20:51:27  INFO     Run 20260505_205127 | split=split1 | model=MODEL1 | epochs=30 | fraction=0.10 | dropout=0.30 | frozen=100
+20:51:27  INFO     Loading paths from data/split1
+20:51:27  INFO     [train]
+20:51:27  INFO         Music    4833 segments
+20:51:27  INFO         Speech   4929 segments
+20:51:27  INFO         Other    4640 segments
+20:51:27  INFO     [val]
+20:51:27  INFO         Music    1021 segments
+20:51:27  INFO         Speech   1105 segments
+20:51:27  INFO         Other    916 segments
+20:51:27  INFO     [test]
+20:51:27  INFO         Music    840 segments
+20:51:27  INFO         Speech   1104 segments
+20:51:27  INFO         Other    976 segments
+20:51:27  INFO     Subsampled train set to 1440 files (fraction=0.10)
+20:51:27  INFO     Class weights: {'Music': '1.03', 'Speech': '0.99', 'Other': '0.98'}
+20:51:27  INFO     Building tf.data pipelines (mel spectrograms computed on-the-fly + cached)...
+20:51:31  INFO     MobileNetV2: 54/154 layers trainable
+20:51:31  INFO     Model: "mobilenetv2_head"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ input_layer_1 (InputLayer)           │ (None, 128, 128, 3)         │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ mobilenetv2_1.00_128 (Functional)    │ (None, 4, 4, 1280)          │       2,257,984 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ global_average_pooling2d             │ (None, 1280)                │               0 │
+│ (GlobalAveragePooling2D)             │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 1280)                │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense (Dense)                        │ (None, 3)                   │           3,843 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 2,261,827 (8.63 MB)
+ Trainable params: 1,865,283 (7.12 MB)
+ Non-trainable params: 396,544 (1.51 MB)
+
+20:51:31  INFO     Training | train=1440  val=3042  epochs=30
+20:52:59  INFO     epoch   1 | loss 0.2668 | acc 0.9132 | val_loss 13.2719 | val_acc 0.3034 | 88.1s
+20:53:02  INFO     epoch   2 | loss 0.0547 | acc 0.9833 | val_loss 9.5527 | val_acc 0.3514 | 2.1s
+20:53:04  INFO     epoch   3 | loss 0.0280 | acc 0.9903 | val_loss 9.3988 | val_acc 0.3422 | 2.0s
+20:53:06  INFO     epoch   4 | loss 0.0113 | acc 0.9965 | val_loss 6.6229 | val_acc 0.4106 | 2.1s
+20:53:09  INFO     epoch   5 | loss 0.0053 | acc 0.9979 | val_loss 3.3898 | val_acc 0.5444 | 2.1s
+20:53:11  INFO     epoch   6 | loss 0.0456 | acc 0.9882 | val_loss 6.2570 | val_acc 0.4227 | 2.1s
+20:53:14  INFO     epoch   7 | loss 0.0251 | acc 0.9944 | val_loss 7.2345 | val_acc 0.4849 | 2.1s
+20:53:16  INFO     epoch   8 | loss 0.0333 | acc 0.9896 | val_loss 0.8068 | val_acc 0.9277 | 2.1s
+20:53:18  INFO     epoch   9 | loss 0.0517 | acc 0.9875 | val_loss 3.2547 | val_acc 0.7258 | 2.1s
+20:53:20  INFO     epoch  10 | loss 0.0139 | acc 0.9972 | val_loss 1.2150 | val_acc 0.8646 | 2.1s
+20:53:22  INFO     epoch  11 | loss 0.0020 | acc 0.9993 | val_loss 0.5225 | val_acc 0.9425 | 2.1s
+20:53:25  INFO     epoch  12 | loss 0.0002 | acc 1.0000 | val_loss 0.4733 | val_acc 0.9464 | 2.1s
+20:53:27  INFO     epoch  13 | loss 0.0001 | acc 1.0000 | val_loss 0.3937 | val_acc 0.9576 | 2.1s
+20:53:30  INFO     epoch  14 | loss 0.0001 | acc 1.0000 | val_loss 0.3540 | val_acc 0.9665 | 2.1s
+20:53:32  INFO     epoch  15 | loss 0.0000 | acc 1.0000 | val_loss 0.3362 | val_acc 0.9698 | 2.0s
+20:53:35  INFO     epoch  16 | loss 0.0000 | acc 1.0000 | val_loss 0.3265 | val_acc 0.9711 | 2.0s
+20:53:37  INFO     epoch  17 | loss 0.0000 | acc 1.0000 | val_loss 0.3205 | val_acc 0.9727 | 2.1s
+20:53:40  INFO     epoch  18 | loss 0.0000 | acc 1.0000 | val_loss 0.3171 | val_acc 0.9737 | 2.1s
+20:53:42  INFO     epoch  19 | loss 0.0000 | acc 1.0000 | val_loss 0.3128 | val_acc 0.9744 | 2.0s
+20:53:45  INFO     epoch  20 | loss 0.0000 | acc 1.0000 | val_loss 0.3090 | val_acc 0.9744 | 2.1s
+20:53:47  INFO     epoch  21 | loss 0.0000 | acc 1.0000 | val_loss 0.3042 | val_acc 0.9753 | 2.1s
+20:53:49  INFO     epoch  22 | loss 0.0000 | acc 1.0000 | val_loss 0.2995 | val_acc 0.9757 | 2.1s
+20:53:52  INFO     epoch  23 | loss 0.0000 | acc 1.0000 | val_loss 0.2957 | val_acc 0.9757 | 2.0s
+20:53:54  INFO     epoch  24 | loss 0.0000 | acc 1.0000 | val_loss 0.2907 | val_acc 0.9767 | 2.1s
+20:53:56  INFO     epoch  25 | loss 0.0000 | acc 1.0000 | val_loss 0.2858 | val_acc 0.9770 | 2.1s
+20:53:59  INFO     epoch  26 | loss 0.0000 | acc 1.0000 | val_loss 0.2810 | val_acc 0.9770 | 2.1s
+20:54:01  INFO     epoch  27 | loss 0.0000 | acc 1.0000 | val_loss 0.2770 | val_acc 0.9770 | 2.1s
+20:54:03  INFO     epoch  28 | loss 0.0000 | acc 1.0000 | val_loss 0.2730 | val_acc 0.9776 | 2.1s
+20:54:06  INFO     epoch  29 | loss 0.0000 | acc 1.0000 | val_loss 0.2693 | val_acc 0.9773 | 2.1s
+20:54:08  INFO     epoch  30 | loss 0.0000 | acc 1.0000 | val_loss 0.2652 | val_acc 0.9773 | 2.1s
+20:54:50  INFO     Test accuracy=0.9832
+              precision    recall  f1-score   support
+
+       Music       0.99      0.97      0.98       840
+      Speech       1.00      0.98      0.99      1104
+       Other       0.96      0.99      0.98       976
+
+    accuracy                           0.98      2920
+   macro avg       0.98      0.98      0.98      2920
+weighted avg       0.98      0.98      0.98      2920
+
+20:54:51  INFO     Best model saved as: models/MODEL1.keras
+20:54:51  INFO     Training curves saved: models/mobilenet_split1/training_history.png
+20:54:51  INFO     Confusion matrix saved: models/mobilenet_split1/confusion.png
+20:54:51  INFO     All outputs saved in: /home/kacper/szum/models/mobilenet_split1
