@@ -1,0 +1,44 @@
+19:43:38  INFO     Run 20260526_194338 | split=split1 | model=MODEL1 | epochs=10 | fraction=0.10 | dropout=0.00 | frozen=0
+19:43:38  INFO     Loading paths from data/split1
+19:43:38  INFO     [train]
+19:43:38  INFO         Music    4833 segments
+19:43:38  INFO         Speech   4929 segments
+19:43:38  INFO         Other    4640 segments
+19:43:38  INFO     [val]
+19:43:38  INFO         Music    1021 segments
+19:43:38  INFO         Speech   1105 segments
+19:43:38  INFO         Other    916 segments
+19:43:38  INFO     [test]
+19:43:38  INFO         Music    840 segments
+19:43:38  INFO         Speech   1104 segments
+19:43:38  INFO         Other    976 segments
+19:43:38  INFO     Subsampled train set to 1440 files (fraction=0.10)
+19:43:38  INFO     Class weights: {'Music': '1.03', 'Speech': '0.99', 'Other': '0.98'}
+19:43:38  INFO     Building tf.data pipelines (mel spectrograms computed on-the-fly + cached)...
+19:43:42  INFO     MobileNetV2: 154/154 layers trainable
+19:43:42  INFO     Training | train=1440  val=3042  epochs=10
+19:45:28  INFO     epoch   1 | loss 0.3221 | acc 0.9056 | val_loss 16.5800 | val_acc 0.3090 | 105.5s
+19:45:32  INFO     epoch   2 | loss 0.0845 | acc 0.9708 | val_loss 27.6791 | val_acc 0.3011 | 3.1s
+19:45:35  INFO     epoch   3 | loss 0.0181 | acc 0.9924 | val_loss 32.4917 | val_acc 0.3011 | 3.1s
+19:45:38  INFO     epoch   4 | loss 0.0043 | acc 0.9993 | val_loss 30.6449 | val_acc 0.3011 | 3.1s
+19:45:41  INFO     epoch   5 | loss 0.0011 | acc 1.0000 | val_loss 29.1199 | val_acc 0.3011 | 3.1s
+19:45:44  INFO     epoch   6 | loss 0.0002 | acc 1.0000 | val_loss 29.3603 | val_acc 0.3011 | 3.1s
+19:45:47  INFO     epoch   7 | loss 0.0001 | acc 1.0000 | val_loss 28.4397 | val_acc 0.3011 | 3.1s
+19:45:50  INFO     epoch   8 | loss 0.0001 | acc 1.0000 | val_loss 27.5326 | val_acc 0.3011 | 3.1s
+19:45:53  INFO     epoch   9 | loss 0.0000 | acc 1.0000 | val_loss 26.5784 | val_acc 0.3011 | 3.1s
+19:45:56  INFO     epoch  10 | loss 0.0000 | acc 1.0000 | val_loss 25.5458 | val_acc 0.3011 | 3.0s
+19:46:35  INFO     Test accuracy=0.3342
+              precision    recall  f1-score   support
+
+       Music       0.00      0.00      0.00       840
+      Speech       0.00      0.00      0.00      1104
+       Other       0.33      1.00      0.50       976
+
+    accuracy                           0.33      2920
+   macro avg       0.11      0.33      0.17      2920
+weighted avg       0.11      0.33      0.17      2920
+
+19:46:36  INFO     Best model saved as: models/MODEL1.keras
+19:46:36  INFO     Training curves saved: models/mobilenet_split1/training_history.png
+19:46:37  INFO     Confusion matrix saved: models/mobilenet_split1/confusion.png
+19:46:37  INFO     All outputs saved in: /home/kacper/szum/models/mobilenet_split1
