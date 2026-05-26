@@ -1,0 +1,36 @@
+MODEL3 | val | 34/3194 błędów
+
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00007.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00087.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00116.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00193.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00194.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00195.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00272.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00294.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00295.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00359.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00360.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00541.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00543.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00544.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00545.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00546.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00547.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00551.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00553.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00663.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00671.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00673.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00676.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00751.wav
+TRUE=Music  PRED=Other  ../data/split3/val/Music/music-00798.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-00686.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-00851.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-00889.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-00902.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-00903.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-00982.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-01067.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-01068.wav
+TRUE=Speech  PRED=Other  ../data/split3/val/Speech/speech-01087.wav

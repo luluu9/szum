@@ -1,0 +1,113 @@
+
+MODEL1 | train | acc=0.9858  macro-F1=0.9857
+              precision    recall  f1-score   support
+
+       Music       1.00      0.97      0.98      4833
+      Speech       1.00      0.99      0.99      4929
+       Other       0.96      1.00      0.98      4640
+
+    accuracy                           0.99     14402
+   macro avg       0.99      0.99      0.99     14402
+weighted avg       0.99      0.99      0.99     14402
+
+
+MODEL1 | val | acc=0.9822  macro-F1=0.9817
+              precision    recall  f1-score   support
+
+       Music       1.00      0.97      0.98      1021
+      Speech       0.99      0.99      0.99      1105
+       Other       0.96      0.99      0.97       916
+
+    accuracy                           0.98      3042
+   macro avg       0.98      0.98      0.98      3042
+weighted avg       0.98      0.98      0.98      3042
+
+
+MODEL1 | test | acc=0.9842  macro-F1=0.9838
+              precision    recall  f1-score   support
+
+       Music       1.00      0.97      0.98       840
+      Speech       1.00      0.99      0.99      1104
+       Other       0.96      1.00      0.98       976
+
+    accuracy                           0.98      2920
+   macro avg       0.98      0.98      0.98      2920
+weighted avg       0.98      0.98      0.98      2920
+
+I0000 00:00:1779831427.328941   25248 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_2', 12 bytes spill stores, 12 bytes spill loads
+
+
+MODEL2 | train | acc=0.9882  macro-F1=0.9885
+              precision    recall  f1-score   support
+
+       Music       1.00      0.97      0.98      6000
+      Speech       1.00      1.00      1.00      4940
+       Other       0.97      1.00      0.98      4987
+
+    accuracy                           0.99     15927
+   macro avg       0.99      0.99      0.99     15927
+weighted avg       0.99      0.99      0.99     15927
+
+
+MODEL2 | val | acc=0.9793  macro-F1=0.9786
+              precision    recall  f1-score   support
+
+       Music       1.00      0.96      0.98      1021
+      Speech       0.99      1.00      0.99      1105
+       Other       0.95      0.99      0.97       916
+
+    accuracy                           0.98      3042
+   macro avg       0.98      0.98      0.98      3042
+weighted avg       0.98      0.98      0.98      3042
+
+
+MODEL2 | test | acc=0.9846  macro-F1=0.9838
+              precision    recall  f1-score   support
+
+       Music       0.99      0.97      0.98       840
+      Speech       1.00      1.00      1.00      1104
+       Other       0.97      0.99      0.98       976
+
+    accuracy                           0.98      2920
+   macro avg       0.98      0.98      0.98      2920
+weighted avg       0.98      0.98      0.98      2920
+
+I0000 00:00:1779831840.299192   27187 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_2', 12 bytes spill stores, 12 bytes spill loads
+
+
+MODEL3 | train | acc=0.9843  macro-F1=0.9844
+              precision    recall  f1-score   support
+
+       Music       1.00      0.96      0.98      5142
+      Speech       1.00      0.99      0.99      4940
+       Other       0.95      1.00      0.98      4987
+
+    accuracy                           0.98     15069
+   macro avg       0.98      0.98      0.98     15069
+weighted avg       0.98      0.98      0.98     15069
+
+I0000 00:00:1779831953.228607   28055 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_2', 12 bytes spill stores, 12 bytes spill loads
+
+
+MODEL3 | val | acc=0.9894  macro-F1=0.9893
+              precision    recall  f1-score   support
+
+       Music       1.00      0.98      0.99      1047
+      Speech       1.00      0.99      1.00      1104
+       Other       0.97      1.00      0.98      1043
+
+    accuracy                           0.99      3194
+   macro avg       0.99      0.99      0.99      3194
+weighted avg       0.99      0.99      0.99      3194
+
+
+MODEL3 | test | acc=0.9788  macro-F1=0.9785
+              precision    recall  f1-score   support
+
+       Music       0.99      0.96      0.98       840
+      Speech       1.00      0.98      0.99      1104
+       Other       0.95      0.99      0.97       976
+
+    accuracy                           0.98      2920
+   macro avg       0.98      0.98      0.98      2920
+weighted avg       0.98      0.98      0.98      2920
