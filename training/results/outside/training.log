@@ -1,0 +1,35 @@
+=== MODEL1 ===
+acc=0.8429  macro-F1=0.8335
+              precision    recall  f1-score   support
+
+       Music       0.70      0.94      0.80       235
+      Speech       0.99      0.60      0.75       286
+       Other       0.90      1.00      0.95       294
+
+    accuracy                           0.84       815
+   macro avg       0.86      0.85      0.83       815
+weighted avg       0.88      0.84      0.84       815
+
+=== MODEL2 ===
+acc=0.3988  macro-F1=0.3240
+              precision    recall  f1-score   support
+
+       Music       0.32      0.97      0.48       235
+      Speech       1.00      0.01      0.01       286
+       Other       0.91      0.32      0.47       294
+
+    accuracy                           0.40       815
+   macro avg       0.75      0.43      0.32       815
+weighted avg       0.77      0.40      0.32       815
+
+=== MODEL3 ===
+acc=0.4123  macro-F1=0.3419
+              precision    recall  f1-score   support
+
+       Music       0.33      0.97      0.49       235
+      Speech       1.00      0.02      0.03       286
+       Other       0.87      0.35      0.50       294
+
+    accuracy                           0.41       815
+   macro avg       0.73      0.45      0.34       815
+weighted avg       0.76      0.41      0.33       815
