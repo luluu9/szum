@@ -1,0 +1,100 @@
+21:38:11  INFO     CV | split=split2 | folds=5 | epochs=50 | dropout=0.30 | weights=None
+21:38:11  INFO     Loading train+val data from data/split2
+21:38:11  INFO     [train]
+21:38:11  INFO         Music    6000 segments
+21:38:11  INFO         Speech   4940 segments
+21:38:11  INFO         Other    4987 segments
+21:38:11  INFO     [val]
+21:38:11  INFO         Music    1021 segments
+21:38:11  INFO         Speech   1105 segments
+21:38:11  INFO         Other    916 segments
+21:38:11  INFO     CV pool: 18969 segments total
+21:38:11  INFO     Loading test data...
+21:38:11  INFO     [test]
+21:38:11  INFO         Music    840 segments
+21:38:11  INFO         Speech   1104 segments
+21:38:11  INFO         Other    976 segments
+21:38:12  INFO     ============================================================
+21:38:12  INFO     FOLD 1 / 5
+21:38:12  INFO       train=15175  val=3794
+21:42:55  INFO     fold 1 | epoch   1 | loss 0.1806 | acc 0.9431 | val_loss 1.6161 | val_acc 0.3110 | 279.7s
+21:43:15  INFO     fold 1 | epoch   2 | loss 0.1664 | acc 0.9533 | val_loss 1.4266 | val_acc 0.3110 | 19.5s
+21:43:35  INFO     fold 1 | epoch   3 | loss 0.1590 | acc 0.9567 | val_loss 1.2252 | val_acc 0.3187 | 19.5s
+21:43:55  INFO     fold 1 | epoch   4 | loss 0.1473 | acc 0.9551 | val_loss 1.6713 | val_acc 0.3187 | 19.5s
+21:44:14  INFO     fold 1 | epoch   5 | loss 0.1084 | acc 0.9710 | val_loss 1.1512 | val_acc 0.3110 | 19.6s
+21:44:34  INFO     fold 1 | epoch   6 | loss 0.0777 | acc 0.9788 | val_loss 1.1191 | val_acc 0.3110 | 20.2s
+21:44:54  INFO     fold 1 | epoch   7 | loss 0.0568 | acc 0.9844 | val_loss 1.1662 | val_acc 0.3110 | 19.5s
+21:45:13  INFO     fold 1 | epoch   8 | loss 0.0405 | acc 0.9893 | val_loss 1.4957 | val_acc 0.3110 | 19.5s
+21:45:33  INFO     fold 1 | epoch   9 | loss 0.0535 | acc 0.9841 | val_loss 1.1146 | val_acc 0.4220 | 19.8s
+21:45:54  INFO     fold 1 | epoch  10 | loss 0.0518 | acc 0.9850 | val_loss 0.3580 | val_acc 0.8603 | 19.7s
+21:46:14  INFO     fold 1 | epoch  11 | loss 0.0392 | acc 0.9892 | val_loss 0.1091 | val_acc 0.9610 | 19.8s
+21:46:34  INFO     fold 1 | epoch  12 | loss 0.0354 | acc 0.9903 | val_loss 0.2532 | val_acc 0.9528 | 19.9s
+21:46:54  INFO     fold 1 | epoch  13 | loss 0.0363 | acc 0.9897 | val_loss 0.2265 | val_acc 0.9686 | 19.6s
+21:47:15  INFO     fold 1 | epoch  14 | loss 0.0410 | acc 0.9881 | val_loss 2.4057 | val_acc 0.8115 | 20.1s
+21:47:35  INFO     fold 1 | epoch  15 | loss 0.0291 | acc 0.9918 | val_loss 0.5684 | val_acc 0.9468 | 20.0s
+21:47:54  INFO     fold 1 | epoch  16 | loss 0.0444 | acc 0.9870 | val_loss 1.4691 | val_acc 0.8490 | 19.6s
+21:48:14  INFO     fold 1 | epoch  17 | loss 0.0485 | acc 0.9854 | val_loss 3.8208 | val_acc 0.8160 | 19.9s
+21:48:34  INFO     fold 1 | epoch  18 | loss 0.0293 | acc 0.9914 | val_loss 0.2707 | val_acc 0.9710 | 20.0s
+21:48:55  INFO     fold 1 | epoch  19 | loss 0.0252 | acc 0.9929 | val_loss 1.3745 | val_acc 0.8946 | 19.8s
+21:49:15  INFO     fold 1 | epoch  20 | loss 0.0273 | acc 0.9920 | val_loss 0.4373 | val_acc 0.9568 | 19.9s
+21:49:34  INFO     fold 1 | epoch  21 | loss 0.0297 | acc 0.9916 | val_loss 4.3853 | val_acc 0.8500 | 19.7s
+21:49:54  INFO     fold 1 | epoch  22 | loss 0.0267 | acc 0.9920 | val_loss 0.1811 | val_acc 0.9837 | 19.6s
+21:50:14  INFO     fold 1 | epoch  23 | loss 0.0180 | acc 0.9942 | val_loss 0.5018 | val_acc 0.9636 | 19.5s
+21:50:34  INFO     fold 1 | epoch  24 | loss 0.0145 | acc 0.9958 | val_loss 0.5079 | val_acc 0.9684 | 19.5s
+21:50:53  INFO     fold 1 | epoch  25 | loss 0.0201 | acc 0.9944 | val_loss 0.2275 | val_acc 0.9744 | 19.6s
+21:51:13  INFO     fold 1 | epoch  26 | loss 0.0140 | acc 0.9962 | val_loss 0.0857 | val_acc 0.9876 | 19.6s
+21:51:33  INFO     fold 1 | epoch  27 | loss 0.0231 | acc 0.9926 | val_loss 0.1140 | val_acc 0.9810 | 19.7s
+21:51:53  INFO     fold 1 | epoch  28 | loss 0.0207 | acc 0.9942 | val_loss 0.4074 | val_acc 0.9668 | 19.6s
+21:52:13  INFO     fold 1 | epoch  29 | loss 0.0109 | acc 0.9966 | val_loss 0.1195 | val_acc 0.9842 | 19.5s
+21:52:32  INFO     fold 1 | epoch  30 | loss 0.0175 | acc 0.9951 | val_loss 0.7580 | val_acc 0.9375 | 19.5s
+21:52:52  INFO     fold 1 | epoch  31 | loss 0.0181 | acc 0.9945 | val_loss 0.1480 | val_acc 0.9787 | 19.5s
+21:53:11  INFO     fold 1 | epoch  32 | loss 0.0112 | acc 0.9965 | val_loss 0.1823 | val_acc 0.9789 | 19.6s
+21:53:31  INFO     fold 1 | epoch  33 | loss 0.0103 | acc 0.9962 | val_loss 0.1035 | val_acc 0.9879 | 20.0s
+21:53:52  INFO     fold 1 | epoch  34 | loss 0.0130 | acc 0.9963 | val_loss 0.0806 | val_acc 0.9868 | 20.3s
+21:54:12  INFO     fold 1 | epoch  35 | loss 0.0254 | acc 0.9929 | val_loss 0.8710 | val_acc 0.9262 | 20.1s
+21:54:32  INFO     fold 1 | epoch  36 | loss 0.0133 | acc 0.9959 | val_loss 0.0973 | val_acc 0.9844 | 19.9s
+21:54:52  INFO     fold 1 | epoch  37 | loss 0.0104 | acc 0.9964 | val_loss 0.0725 | val_acc 0.9863 | 19.7s
+21:55:11  INFO     fold 1 | epoch  38 | loss 0.0116 | acc 0.9960 | val_loss 0.1121 | val_acc 0.9829 | 19.6s
+21:55:31  INFO     fold 1 | epoch  39 | loss 0.0165 | acc 0.9939 | val_loss 0.1043 | val_acc 0.9871 | 19.9s
+21:55:51  INFO     fold 1 | epoch  40 | loss 0.0100 | acc 0.9972 | val_loss 0.0398 | val_acc 0.9916 | 20.0s
+21:56:12  INFO     fold 1 | epoch  41 | loss 0.0093 | acc 0.9974 | val_loss 0.0442 | val_acc 0.9916 | 19.9s
+21:56:31  INFO     fold 1 | epoch  42 | loss 0.0069 | acc 0.9982 | val_loss 0.0479 | val_acc 0.9916 | 19.8s
+21:56:51  INFO     fold 1 | epoch  43 | loss 0.0165 | acc 0.9951 | val_loss 0.0984 | val_acc 0.9887 | 19.8s
+21:57:11  INFO     fold 1 | epoch  44 | loss 0.0086 | acc 0.9976 | val_loss 0.0668 | val_acc 0.9910 | 19.5s
+21:57:31  INFO     fold 1 | epoch  45 | loss 0.0066 | acc 0.9980 | val_loss 0.0547 | val_acc 0.9937 | 20.0s
+21:57:51  INFO     fold 1 | epoch  46 | loss 0.0085 | acc 0.9974 | val_loss 0.0791 | val_acc 0.9815 | 19.6s
+21:58:11  INFO     fold 1 | epoch  47 | loss 0.0082 | acc 0.9977 | val_loss 0.0838 | val_acc 0.9871 | 19.5s
+21:58:30  INFO     fold 1 | epoch  48 | loss 0.0120 | acc 0.9959 | val_loss 0.2677 | val_acc 0.9644 | 19.6s
+21:58:50  INFO     fold 1 | epoch  49 | loss 0.0137 | acc 0.9953 | val_loss 0.6482 | val_acc 0.9412 | 19.5s
+21:59:09  INFO     fold 1 | epoch  50 | loss 0.0057 | acc 0.9980 | val_loss 0.0509 | val_acc 0.9860 | 19.6s
+21:59:18  INFO     Fold 1 val accuracy: 0.9937
+              precision    recall  f1-score   support
+
+       Music       0.99      1.00      0.99      1405
+      Speech       1.00      1.00      1.00      1209
+       Other       0.99      0.99      0.99      1180
+
+    accuracy                           0.99      3794
+   macro avg       0.99      0.99      0.99      3794
+weighted avg       0.99      0.99      0.99      3794
+
+21:59:18  INFO     ============================================================
+21:59:18  INFO     FOLD 2 / 5
+21:59:18  INFO       train=15175  val=3794
+22:03:35  INFO     fold 2 | epoch   1 | loss 0.1767 | acc 0.9455 | val_loss 1.7590 | val_acc 0.3113 | 255.1s
+22:03:55  INFO     fold 2 | epoch   2 | loss 0.1985 | acc 0.9447 | val_loss 1.3313 | val_acc 0.3113 | 20.0s
+22:04:15  INFO     fold 2 | epoch   3 | loss 0.1704 | acc 0.9553 | val_loss 1.7077 | val_acc 0.3187 | 19.9s
+22:04:36  INFO     fold 2 | epoch   4 | loss 0.1186 | acc 0.9668 | val_loss 1.3906 | val_acc 0.3187 | 19.9s
+22:04:56  INFO     fold 2 | epoch   5 | loss 0.0838 | acc 0.9777 | val_loss 1.4473 | val_acc 0.3187 | 19.9s
+22:05:16  INFO     fold 2 | epoch   6 | loss 0.0685 | acc 0.9806 | val_loss 1.2676 | val_acc 0.3113 | 20.3s
+22:05:37  INFO     fold 2 | epoch   7 | loss 0.0652 | acc 0.9815 | val_loss 1.8064 | val_acc 0.3113 | 21.5s
+22:05:58  INFO     fold 2 | epoch   8 | loss 0.0593 | acc 0.9828 | val_loss 2.7878 | val_acc 0.3113 | 20.8s
+22:06:19  INFO     fold 2 | epoch   9 | loss 0.0479 | acc 0.9871 | val_loss 2.7730 | val_acc 0.3113 | 20.4s
+22:06:39  INFO     fold 2 | epoch  10 | loss 0.0568 | acc 0.9846 | val_loss 0.6738 | val_acc 0.7686 | 20.0s
+22:06:59  INFO     fold 2 | epoch  11 | loss 0.0479 | acc 0.9886 | val_loss 0.1049 | val_acc 0.9702 | 20.0s
+22:07:20  INFO     fold 2 | epoch  12 | loss 0.0431 | acc 0.9878 | val_loss 0.1668 | val_acc 0.9689 | 19.9s
+22:07:40  INFO     fold 2 | epoch  13 | loss 0.0581 | acc 0.9837 | val_loss 5.0193 | val_acc 0.7277 | 20.0s
+22:08:00  INFO     fold 2 | epoch  14 | loss 0.0435 | acc 0.9879 | val_loss 0.9986 | val_acc 0.8682 | 20.1s
+22:08:20  INFO     fold 2 | epoch  15 | loss 0.0324 | acc 0.9902 | val_loss 1.4300 | val_acc 0.8766 | 20.1s
+22:08:40  INFO     fold 2 | epoch  16 | loss 0.0379 | acc 0.9891 | val_loss 3.1450 | val_acc 0.8413 | 20.1s
+22:09:00  INFO     fold 2 | epoch  17 | loss 0.0249 | acc 0.9931 | val_loss 0.9610 | val_acc 0.8975 | 20.1s
